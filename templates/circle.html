@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convert to Uppercase</title>
+</head>
+<body>
+    <h1>area of circle</h1>
+
+    <form action="/works/area/circle" method="post">
+        <label for="radius">Enter a radius:</label>
+        <input type="text" id="radius" name="radius">
+        <input type="submit" value="Compute">
+    </form>
+
+    {% if result %}
+    <p>Area of the circle: {{ result }}</p>
+    {% endif %}
+</body>
+</html>
