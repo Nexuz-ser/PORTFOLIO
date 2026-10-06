@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Link List</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            *{
+                text-decoration: None;
+            }
+            body{
+                background-color: #BDBDBD;
+            }
+            .navbar{
+                background: black; font-family: 'Times New Roman'; padding-right: 15px; padding-left: 15px; padding-block: 15px; border-radius: 5px;
+            }
+            .navdiv{
+                display: flex; align-items: center; justify-content: space-between;
+            }
+            .logo{
+                font-size: 35px; font-weight: 600; color: white;
+            }
+            li{
+                list-style: None; display: inline-block;
+            }
+            li a{
+                color: gray; font-size: 18px; font-weight: bold; margin-right: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navdiv">
+                <div class="logo">Link List</div>
+                <ul>
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/works">Works</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <form action="/works/Link-List" method="POST">
+            <input type="hidden" name="action" value="Add">
+            <label for="add_node">Add Node: </label>
+            <input type="text" id="add_value" name="add_value">
+            <input type="submit" value="Add">
+        </form>
+
+        <form action="/works/Link-List" method="POST">
+            <input type="hidden" name="action" value="Add_end">
+            <label for="add_node_end">Add Node(End): </label>
+            <input type="text" id="add_value" name="add_value">
+            <input type="submit" value="Add">
+        </form>
+
+        <form action="/works/Link-List" method="POST">
+            <input type="hidden" name="action" value="search">
+            <label for="search_node">Search: </label>
+            <input type="text" id="search_node" name="search_node">
+            <input type="submit" value="Confirm">
+        </form>
+        {% if status %}
+        <p>Search Status: {{ status }}</p>
+        {% endif %}
+
+        <form action="/works/Link-List" method="POST">
+            <input type="hidden" name="action" value="remove_at">
+            <label for="remove_node">Remove at: </label>
+            <input type="text" id="remove_node" name="remove_node">
+            <input type="submit" value="Confirm">
+        </form>
+
+        <form action="/works/Link-List" method="POST">
+            <input type="hidden" name="action" value="remove_at_end">
+            <input type="submit" value="Delete at end">
+        </form>
+
+        <form action="/works/Link-List" method="POST">
+            <input type="hidden" name="action" value="remove_at_beginning">
+            <input type="submit" value="Delete at beginning">
+        </form>
+
+        <form action="/works/Link-List" method="POST">
+            <input type="hidden" name="action" value="clear">
+            <input type="submit" value="clear">
+        </form>
+        
+        {% for node in node%}
+        <p>{{ node }}</p>
+        {% endfor %}
+</html>

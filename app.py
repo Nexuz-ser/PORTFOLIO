@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-
+import link_list
 app = Flask(__name__)
 
 @app.route('/')
@@ -52,6 +52,45 @@ def atriangle():
         height = request.form.get('height', '')
         result = (int(base)*int(height))/2
     return render_template('triangle.html', result=result)
+
+Link_list = link_list.LinkedList()
+
+@app.route('/works/Link-List', methods = ['GET', 'POST'])
+def linkList():
+    result = None
+    status = None
+    if request.method == 'POST':
+        action = request.form.get('action')
+        if action == 'Add':
+            data = request.form.get('add_value', '')
+            Link_list.insert_at_beginning(data)
+
+        if action == 'Add_end':
+            data = request.form.get('add_value', '')
+            Link_list.insert_at_end(data)
+
+        if action == 'search':
+            data = request.form.get('search_node', '')
+            if Link_list.search(data):
+                status = 'True'
+            else:
+                status = 'False'
+
+        if action == 'remove_at':
+            data = request.form.get('remove_node', '')
+            Link_list.remove_at(data)
+
+        if action == 'remove_at_end':
+            Link_list.remove_at_end()
+
+        if action == 'remove_at_beginning':
+            Link_list.remove_beginning()
+
+        if action == "clear":
+            Link_list.clear_all()
+    
+    return render_template('link_list.html',node = Link_list.printLinkedList(), result=result, status=status)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
