@@ -12,6 +12,10 @@ def profile():
 
 @app.route('/works', methods=['GET', 'POST'])
 def works():
+    return render_template('works.html')
+
+@app.route('/works/ToUpperCase', methods=['GET', 'POST'])
+def upperCase():
     result = None
     if request.method == 'POST':
         input_string = request.form.get('inputString', '')
@@ -38,7 +42,16 @@ def acircle():
 
 @app.route('/contact')
 def contact():
-    return "Contact Page. please create me an html page with dummy contact info"
+    return render_template('contact.html')
+
+@app.route('/works/area/triangle', methods=['GET', 'POST'])
+def atriangle():
+    result = None
+    if request.method == 'POST':
+        base = request.form.get('base', '')
+        height = request.form.get('height', '')
+        result = (int(base)*int(height))/2
+    return render_template('triangle.html', result=result)
 
 if __name__ == "__main__":
     app.run(debug=True)

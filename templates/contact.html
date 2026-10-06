@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Convert to Uppercase</title>
+        <title>Contact Info.</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style type="text/css">
             *{
                 text-decoration: None;
@@ -29,26 +30,21 @@
     <body>
         <nav class="navbar">
             <div class="navdiv">
-                <div class="logo">Convert String to Uppercase</div>
+                <div class="logo">Contact Info.</div>
                 <ul>
                     <li><a href="/profile">Profile</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li><a href="/">Home</a></li>
                     <li><a href="/works">Works</a></li>
+                    <li><a href="/">Home</a></li>
                 </ul>
             </div>
         </nav>
-
-        <div style="padding-top: 20px;">
-            <form action="/works/ToUpperCase" method="post">
-                <label for="inputString">Enter a string:</label>
-                <input type="text" id="inputString" name="inputString">
-                <input type="submit" value="Convert">
-            </form>
-
-            {% if result %}
-            <p>Converted string: {{ result }}</p>
-            {% endif %}
+        <div style="display: flex; justify-content: center; flex-direction: column; align-items: center; font-size: 20px;">
+            <img src="{{url_for('static', filename='images/profile.png')}}" alt="Profile Icon" width="300" style="padding-top: 40px;">
+            <div style="justify-items: center;">
+                <p><Strong>Email: </Strong>aloroedrian@gmail.com</p>
+                <p><Strong>Contact No.: </Strong>09919157810</p>
+                <p><strong>Github: </strong><a href="https://github.com/Nexuz-ser">https://github.com/Nexuz-ser</a></p>
+            </div>
         </div>
     </body>
 </html>

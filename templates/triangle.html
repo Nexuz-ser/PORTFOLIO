@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Convert to Uppercase</title>
+        <title>Area of a Triangle</title>
         <style type="text/css">
             *{
                 text-decoration: None;
@@ -29,7 +29,7 @@
     <body>
         <nav class="navbar">
             <div class="navdiv">
-                <div class="logo">Convert String to Uppercase</div>
+                <div class="logo">Area of a Triangle</div>
                 <ul>
                     <li><a href="/profile">Profile</a></li>
                     <li><a href="/contact">Contact</a></li>
@@ -40,14 +40,16 @@
         </nav>
 
         <div style="padding-top: 20px;">
-            <form action="/works/ToUpperCase" method="post">
-                <label for="inputString">Enter a string:</label>
-                <input type="text" id="inputString" name="inputString">
-                <input type="submit" value="Convert">
+            <form action="/works/area/triangle" method="post">
+                <label for="base">Enter a base:</label>
+                <input type="text" id="base" name="base">
+                <label for="height">Enter a height</label>
+                <input type="text" id="height" name="height">
+                <input type="submit" value="Compute">
             </form>
 
             {% if result %}
-            <p>Converted string: {{ result }}</p>
+            <p>Area of the Triangle: {{ result }}</p>
             {% endif %}
         </div>
     </body>
